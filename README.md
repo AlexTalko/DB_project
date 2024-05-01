@@ -5,7 +5,7 @@
 Для работы с проектом необходимо:\
 Создать файл с названием database.ini, который заполняется следующим образом:\ 
 
-[postgresql]\ 
+[postgresql]  
 host=YourHost\ 
 user=YourUser\
 password=YourPassword\ 
