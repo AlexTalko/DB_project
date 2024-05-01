@@ -1,14 +1,17 @@
-# DB_project
+Базы данных
+=
 Вас приветствует мини программа для поиска и сохранения в базу данных информации о вакансиях на сайте hh.ru!  
+
 В ходе работы мы найдем вакансии топ компаний, таких как 'ВТБ', 'Ozon', 'Яндекс', 'Роснефть', 'СБЕР', 'Пятерочка', 'Аптеки ВИТА', 'Wildberries', 'Тинькофф', 'Норникель', 'МТС'  
 
 Для работы с проектом необходимо:  
 Создать файл с названием database.ini, который заполняется следующим образом:  
   
-[postgresql]  
-host=YourHost  
-user=YourUser  
-password=YourPassword  
-port=YourPort  
+    [postgresql]  
+    host=YourHost  
+    user=YourUser  
+    password=YourPassword  
+    port=YourPort  
   
-Запуск - файл main.py  
+Запуск - файл main.py
+-
