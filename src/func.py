@@ -82,8 +82,8 @@ def create_database(database_name: str, params: dict) -> None:
                 url TEXT,
                 salary INTEGER,
                 requirement TEXT,
-                employer_id VARCHAR(50) NOT NULL,
-                employer_name VARCHAR(255) NOT NULL,
+                employers_id VARCHAR(50) NOT NULL,
+                employers_name VARCHAR(255) NOT NULL,
                 
                 CONSTRAINT pk_vacancies_vacancies_id PRIMARY KEY (vacancies_id)
             );
@@ -123,7 +123,15 @@ def save_data_vacancies_to_database(data: list, database_name: str, params: dict
     with conn.cursor() as cur:
         for vacancy in data:
             cur.execute("""
-            INSERT INTO vacancies (vacancies_id, vacancy_name, city, description, url, salary, requirement, employer_id, employer_name)
+            INSERT INTO vacancies (vacancies_id, 
+            vacancy_name, 
+            city, 
+            description,
+            url, 
+            salary, 
+            requirement, 
+            employers_id, 
+            employers_name)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
             """,
                         (
@@ -139,4 +147,3 @@ def save_data_vacancies_to_database(data: list, database_name: str, params: dict
                         ))
     conn.commit()
     conn.close()
-
