@@ -28,6 +28,21 @@ def main():
                     'Норникель',
                     'МТС']
 
+    print("Поиск вакансий в следующих компаниях:\n")
+    print(', \n'.join(company_list))
+
+    print("Добавить компании для поиска?(y/n)\n")
+    user_answer = input()
+
+    if user_answer in ['y', 'н']:
+        print("Введите названия компаний через пробел\n")
+        company_name = input('').split(' ')
+        for company in company_name:
+            company_list.append(company)
+
+    print(', \n'.join(company_list))
+    print("Идет загрузка данных...")
+
     # загружаем информацию о компаниях
     employers = hh.get_company(company_list)
 
@@ -56,7 +71,7 @@ def main():
     print(f'Всего вакансий: {total_vacancies[0]}')
     print('Вывести информацию о найденных компаний?(y/n)')
     user_answer = input()
-    if user_answer == 'y':
+    if user_answer in ['y', 'н']:
         companies = db_manager.get_company_info('hh_vacancies')
         for company in companies:
             print(f"{company[0]}\n"
@@ -65,7 +80,7 @@ def main():
 
     print("Вывести на экран найденные вакансии?(y/n)")
     user_answer = input()
-    if user_answer == 'y':
+    if user_answer in ['y', 'н']:
         vacancies = db_manager.get_all_vacancies('hh_vacancies')
         for vacancy in vacancies:
             print(f"Название вакансии: {vacancy[1]}\n"
@@ -78,13 +93,13 @@ def main():
 
     print("Вывести на экран среднюю зарплату по найденным вакансиям?(y/n)")
     user_answer = input()
-    if user_answer == 'y':
+    if user_answer in ['y', 'н']:
         vacancies = db_manager.get_avg_salary('hh_vacancies')
         print(f"Средняя зарплата {vacancies[0]} ₽")
 
     print("Вывести на экран вакансии с зарплатой выше среднего?(y/n)")
     user_answer = input()
-    if user_answer == 'y':
+    if user_answer in ['y', 'н']:
         vacancies = db_manager.get_vacancies_with_higher_salary('hh_vacancies')
         for vacancy in vacancies:
             print(f"Название вакансии: {vacancy[0]}\n"
@@ -95,7 +110,7 @@ def main():
 
     print("Найти вакансии по ключевому слову?(y/n)")
     user_answer = input()
-    if user_answer == 'y':
+    if user_answer in ['y', 'н']:
         user_answer = input("Введите ключевое слово для поиска:\n").capitalize()
         vacancies = db_manager.get_vacancies_with_keyword('hh_vacancies', user_answer)
         for vacancy in vacancies:
@@ -107,7 +122,7 @@ def main():
 
     print("Выход из программы?(y/n)")
     user_answer = input()
-    if user_answer == 'y':
+    if user_answer in ['y', 'н']:
         print('Все данные сохранены в базу данных hh_vacancies!')
         print('Выход из программы!')
     else:
