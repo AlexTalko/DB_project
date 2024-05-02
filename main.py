@@ -9,8 +9,6 @@ from src.class_manager import DBManager
 
 
 def main():
-    # # params - параметры для подключения к базе данных
-    # params = config()
 
     # создаем экземпляр класса для подключения к API hh.ru
     hh = HeadHunter()
